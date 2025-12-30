@@ -1,0 +1,108 @@
+/* Mobile-first styles (no media query needed for mobile) */
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: #dedede;
+  padding: 5px;
+  margin: 15px;
+  font-size: 22px;
+  font-family: Arial, sans-serif;
+}
+
+h1{
+  text-align: center;
+  font-size: 1.9em;
+  margin: 10px 0 8px;
+}
+
+main p{
+  margin: 10px 0 14px;
+}
+
+/* One-column grid with 10px gap */
+.grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  align-items: stretch;
+}
+
+/* Figure + image styling */
+figure{
+  margin: 0;
+  padding: 10px;
+  border: 3px solid #333;
+  background-color: #ffffff;
+}
+
+img{
+  display: block;
+  width: 100%;
+  border: 5px solid blue;
+  padding: 6px;
+  border-radius: 14px;
+}
+
+figcaption{
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+/* Tablet view at 772px */
+@media (min-width: 772px){
+  .grid{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Circular figures on tablet */
+  figure{
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  /* Last figure spans both columns */
+  figure:last-child{
+    grid-column: 1 / -1;
+  }
+}
+
+/* Large screen view at 992px */
+@media (min-width: 992px){
+  /* Every third figure spans both columns */
+  figure:nth-child(3n){
+    grid-column: 1 / -1;
+  }
+
+  /* Remove border radius from ALL figures */
+  figure{
+    border-radius: 0;
+  }
+}
+
+/* Prefer reduced motion */
+@media (prefers-reduced-motion: reduce){
+  html{
+    scroll-behavior: auto;
+  }
+}
+
+/* Dark mode colors (default is light) */
+@media (prefers-color-scheme: dark){
+  body{
+    background-color: #111111;
+    color: #f0f0f0;
+  }
+
+  figure{
+    background-color: #1f1f1f;
+    color: #ffe08a;
+    border-color: #000000;
+  }
+
+  img{
+    border-color: #000000;
+  }
+}
